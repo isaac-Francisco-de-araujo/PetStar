@@ -1,16 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { PawPrint, Instagram, Facebook, Mail, Phone } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone } from "lucide-react";
+import logo from "@/assets/logo-petshop.png";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-gradient-soft">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-4 md:px-6">
         <div>
-          <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-hero text-white shadow-soft">
-              <PawPrint className="h-5 w-5" />
-            </span>
-            PetShop
+          <Link to="/" className="inline-flex items-center" aria-label="PetShop">
+            <img src={logo} alt="PetShop" className="h-16 w-auto" />
           </Link>
           <p className="mt-3 text-sm text-muted-foreground">
             Tudo que seu pet precisa, com carinho e qualidade.
@@ -39,8 +37,8 @@ export function Footer() {
         <div>
           <h4 className="mb-3 text-sm font-semibold">Contato</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> contato@petshop.com</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> (11) 99999-0000</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /><span>contato@petshop.com</span></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /><span>(11) 99999-0000</span></li>
           </ul>
           <div className="mt-3 flex gap-2">
             <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full bg-background shadow-card transition hover:bg-primary hover:text-primary-foreground"><Instagram className="h-4 w-4" /></a>
