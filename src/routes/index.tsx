@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Truck, ShieldCheck, Heart, Sparkles, CalendarCheck, Flame } from "lucide-react";
+import {
+  ArrowRight,
+  Truck,
+  ShieldCheck,
+  Heart,
+  Sparkles,
+  CalendarCheck,
+  Flame,
+} from "lucide-react";
 import { toast } from "sonner";
 import heroImg from "@/assets/hero-pets.jpg";
 import { ProductCard } from "@/components/ProductCard";
@@ -10,16 +18,20 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "PetShop — Tudo que seu pet precisa" },
-      { name: "description", content: "Rações, brinquedos, higiene e acessórios premium com entrega rápida para todo Brasil." },
+      {
+        name: "description",
+        content:
+          "Rações, brinquedos, higiene e acessórios premium com entrega rápida para todo Brasil.",
+      },
     ],
   }),
 });
 
 const categoryIcons: Record<string, string> = {
-  "Rações": "🥣",
-  "Brinquedos": "🎾",
-  "Higiene": "🧴",
-  "Acessórios": "🦴",
+  Rações: "🥣",
+  Brinquedos: "🎾",
+  Higiene: "🧴",
+  Acessórios: "🦴",
 };
 
 function Home() {
@@ -40,10 +52,12 @@ function Home() {
               <Sparkles className="h-3.5 w-3.5" /> Frete grátis acima de R$ 199
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
-              Tudo que seu <span className="bg-gradient-hero bg-clip-text text-transparent">pet</span> precisa
+              Tudo que seu{" "}
+              <span className="bg-gradient-hero bg-clip-text text-transparent">pet</span> precisa
             </h1>
             <p className="mt-4 max-w-lg text-base text-muted-foreground md:text-lg">
-              Rações premium, brinquedos divertidos, produtos de higiene e acessórios com a qualidade que seu melhor amigo merece.
+              Rações premium, brinquedos divertidos, produtos de higiene e acessórios com a
+              qualidade que seu melhor amigo merece.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -66,7 +80,10 @@ function Home() {
                 { icon: ShieldCheck, label: "Compra segura" },
                 { icon: Heart, label: "Feito com amor" },
               ].map((f) => (
-                <div key={f.label} className="flex flex-col items-center gap-1.5 rounded-xl bg-background/60 p-3 text-center text-xs font-medium shadow-soft">
+                <div
+                  key={f.label}
+                  className="flex flex-col items-center gap-1.5 rounded-xl bg-background/60 p-3 text-center text-xs font-medium shadow-soft"
+                >
                   <f.icon className="h-5 w-5 text-primary" />
                   {f.label}
                 </div>
@@ -120,9 +137,7 @@ function Home() {
             <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
               Promoção da semana
             </span>
-            <h3 className="mt-3 text-3xl font-extrabold md:text-4xl">
-              20% OFF em rações premium
-            </h3>
+            <h3 className="mt-3 text-3xl font-extrabold md:text-4xl">20% OFF em rações premium</h3>
             <p className="mt-2 text-white/90">
               Aproveite para abastecer a despensa do seu pet com economia.
             </p>
@@ -144,7 +159,10 @@ function Home() {
             <h2 className="text-2xl font-bold md:text-3xl">Em destaque</h2>
             <p className="mt-1 text-sm text-muted-foreground">Os queridinhos da semana</p>
           </div>
-          <Link to="/produtos" className="hidden items-center gap-1 text-sm font-semibold text-primary hover:underline md:inline-flex">
+          <Link
+            to="/produtos"
+            className="hidden items-center gap-1 text-sm font-semibold text-primary hover:underline md:inline-flex"
+          >
             Ver todos <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -179,16 +197,26 @@ function Home() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-bold md:text-3xl">Serviços populares</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Cuidado profissional para o seu pet</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Cuidado profissional para o seu pet
+            </p>
           </div>
-          <Link to="/servicos" className="hidden items-center gap-1 text-sm font-semibold text-primary hover:underline md:inline-flex">
+          <Link
+            to="/servicos"
+            className="hidden items-center gap-1 text-sm font-semibold text-primary hover:underline md:inline-flex"
+          >
             Ver todos <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {popularServices.map((s) => (
-            <article key={s.id} className="group flex flex-col rounded-3xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-primary hover:shadow-glow">
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-soft text-3xl transition group-hover:scale-110">{s.icon}</span>
+            <article
+              key={s.id}
+              className="group flex flex-col rounded-3xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-primary hover:shadow-glow"
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-soft text-3xl transition group-hover:scale-110">
+                {s.icon}
+              </span>
               <h3 className="mt-4 text-lg font-bold">{s.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{s.description}</p>
               <div className="mt-5 flex items-center justify-between border-t border-border pt-4">

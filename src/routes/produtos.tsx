@@ -17,7 +17,11 @@ export const Route = createFileRoute("/produtos")({
   head: () => ({
     meta: [
       { title: "Produtos — PetShop" },
-      { name: "description", content: "Catálogo completo de produtos para pets: rações, brinquedos, higiene e acessórios." },
+      {
+        name: "description",
+        content:
+          "Catálogo completo de produtos para pets: rações, brinquedos, higiene e acessórios.",
+      },
     ],
   }),
 });
@@ -59,7 +63,9 @@ function ProductsPage() {
             to="/produtos"
             search={{ cat: undefined, q }}
             className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
-              !cat ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary"
+              !cat
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border hover:border-primary"
             }`}
           >
             Todos
@@ -70,7 +76,9 @@ function ProductsPage() {
               to="/produtos"
               search={{ cat: c, q }}
               className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
-                cat === c ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary"
+                cat === c
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:border-primary"
               }`}
             >
               {c}
@@ -82,7 +90,9 @@ function ProductsPage() {
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border bg-card py-20 text-center">
           <p className="text-lg font-semibold">Nenhum produto encontrado</p>
-          <p className="mt-1 text-sm text-muted-foreground">Tente ajustar sua busca ou categoria.</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Tente ajustar sua busca ou categoria.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">

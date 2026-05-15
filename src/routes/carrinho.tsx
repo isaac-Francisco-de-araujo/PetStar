@@ -44,7 +44,9 @@ function CartPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 md:py-14">
       <h1 className="text-3xl font-extrabold md:text-4xl">Carrinho</h1>
-      <p className="mt-1 text-sm text-muted-foreground">{items.length} {items.length === 1 ? "produto" : "produtos"}</p>
+      <p className="mt-1 text-sm text-muted-foreground">
+        {items.length} {items.length === 1 ? "produto" : "produtos"}
+      </p>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_360px]">
         <ul className="space-y-4">
@@ -53,11 +55,18 @@ function CartPage() {
               key={it.id}
               className="flex gap-4 rounded-2xl border border-border bg-card p-4 shadow-card transition hover:shadow-glow"
             >
-              <img src={it.image} alt={it.name} loading="lazy" className="h-24 w-24 shrink-0 rounded-xl object-cover" />
+              <img
+                src={it.image}
+                alt={it.name}
+                loading="lazy"
+                className="h-24 w-24 shrink-0 rounded-xl object-cover"
+              />
               <div className="flex flex-1 flex-col gap-2">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-primary">{it.category}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                      {it.category}
+                    </p>
                     <h3 className="text-sm font-semibold leading-snug">{it.name}</h3>
                   </div>
                   <button
@@ -70,11 +79,19 @@ function CartPage() {
                 </div>
                 <div className="mt-auto flex items-center justify-between">
                   <div className="inline-flex items-center rounded-full border border-border">
-                    <button onClick={() => setQuantity(it.id, it.quantity - 1)} className="grid h-8 w-8 place-items-center rounded-l-full hover:bg-secondary" aria-label="Diminuir">
+                    <button
+                      onClick={() => setQuantity(it.id, it.quantity - 1)}
+                      className="grid h-8 w-8 place-items-center rounded-l-full hover:bg-secondary"
+                      aria-label="Diminuir"
+                    >
                       <Minus className="h-3.5 w-3.5" />
                     </button>
                     <span className="w-8 text-center text-sm font-semibold">{it.quantity}</span>
-                    <button onClick={() => setQuantity(it.id, it.quantity + 1)} className="grid h-8 w-8 place-items-center rounded-r-full hover:bg-secondary" aria-label="Aumentar">
+                    <button
+                      onClick={() => setQuantity(it.id, it.quantity + 1)}
+                      className="grid h-8 w-8 place-items-center rounded-r-full hover:bg-secondary"
+                      aria-label="Aumentar"
+                    >
                       <Plus className="h-3.5 w-3.5" />
                     </button>
                   </div>
@@ -89,14 +106,17 @@ function CartPage() {
           <h2 className="text-lg font-bold">Resumo</h2>
           <div className="mt-4 space-y-2 text-sm">
             <div className="flex justify-between text-muted-foreground">
-              <span>Subtotal</span><span>{formatBRL(total)}</span>
+              <span>Subtotal</span>
+              <span>{formatBRL(total)}</span>
             </div>
             <div className="flex justify-between text-muted-foreground">
-              <span>Frete</span><span className="text-primary">Grátis</span>
+              <span>Frete</span>
+              <span className="text-primary">Grátis</span>
             </div>
             <div className="my-3 h-px bg-border" />
             <div className="flex justify-between text-base font-bold">
-              <span>Total</span><span>{formatBRL(total)}</span>
+              <span>Total</span>
+              <span>{formatBRL(total)}</span>
             </div>
           </div>
           <button
@@ -105,7 +125,10 @@ function CartPage() {
           >
             Finalizar compra
           </button>
-          <button onClick={clear} className="mt-2 w-full rounded-full border border-border py-2.5 text-xs font-medium text-muted-foreground hover:text-destructive">
+          <button
+            onClick={clear}
+            className="mt-2 w-full rounded-full border border-border py-2.5 text-xs font-medium text-muted-foreground hover:text-destructive"
+          >
             Limpar carrinho
           </button>
         </aside>
