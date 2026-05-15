@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Truck, ShieldCheck, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Truck, ShieldCheck, Heart, Sparkles, CalendarCheck, Flame } from "lucide-react";
+import { toast } from "sonner";
 import heroImg from "@/assets/hero-pets.jpg";
 import { ProductCard } from "@/components/ProductCard";
-import { categories, products } from "@/lib/products";
+import { categories, products, services, formatBRL } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -23,6 +24,8 @@ const categoryIcons: Record<string, string> = {
 
 function Home() {
   const featured = products.filter((p) => p.featured);
+  const bestSellers = products.filter((p) => p.bestSeller);
+  const popularServices = services.filter((s) => s.popular);
 
   return (
     <div>
@@ -148,6 +151,56 @@ function Home() {
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {featured.map((p) => (
             <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </section>
+
+      {/* Mais vendidos */}
+      {bestSellers.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 pb-16 md:px-6">
+          <div className="mb-8 flex items-end justify-between">
+            <div>
+              <h2 className="flex items-center gap-2 text-2xl font-bold md:text-3xl">
+                <Flame className="h-6 w-6 text-[var(--accent)]" /> Mais vendidos
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">O que está bombando na loja</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {bestSellers.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Serviços populares */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-6">
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <h2 className="text-2xl font-bold md:text-3xl">Serviços populares</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Cuidado profissional para o seu pet</p>
+          </div>
+          <Link to="/servicos" className="hidden items-center gap-1 text-sm font-semibold text-primary hover:underline md:inline-flex">
+            Ver todos <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {popularServices.map((s) => (
+            <article key={s.id} className="group flex flex-col rounded-3xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-primary hover:shadow-glow">
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-soft text-3xl transition group-hover:scale-110">{s.icon}</span>
+              <h3 className="mt-4 text-lg font-bold">{s.name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.description}</p>
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+                <span className="text-xl font-extrabold">{formatBRL(s.price)}</span>
+                <button
+                  onClick={() => toast.success(`Agendamento de ${s.name} solicitado!`)}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-gradient-hero px-4 py-2 text-xs font-semibold text-white shadow-soft transition hover:shadow-glow active:scale-95"
+                >
+                  <CalendarCheck className="h-3.5 w-3.5" /> Agendar
+                </button>
+              </div>
+            </article>
           ))}
         </div>
       </section>
