@@ -8,7 +8,11 @@ export const Route = createFileRoute("/servicos")({
   head: () => ({
     meta: [
       { title: "Serviços Pet — PetShop" },
-      { name: "description", content: "Banho, tosa, higiene dental e mais. Serviços completos para o seu pet com profissionais experientes." },
+      {
+        name: "description",
+        content:
+          "Banho, tosa, higiene dental e mais. Serviços completos para o seu pet com profissionais experientes.",
+      },
       { property: "og:title", content: "Serviços Pet — PetShop" },
       { property: "og:description", content: "Banho, tosa e cuidados completos para o seu pet." },
     ],
@@ -32,7 +36,9 @@ function ServicesPage() {
             <Sparkles className="h-3.5 w-3.5" /> Serviços Populares
           </span>
           <h1 className="mt-5 text-4xl font-extrabold md:text-5xl">
-            Cuidado <span className="bg-gradient-hero bg-clip-text text-transparent">profissional</span> para seu pet
+            Cuidado{" "}
+            <span className="bg-gradient-hero bg-clip-text text-transparent">profissional</span>{" "}
+            para seu pet
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
             Equipe treinada, ambiente seguro e produtos premium para o melhor cuidado.

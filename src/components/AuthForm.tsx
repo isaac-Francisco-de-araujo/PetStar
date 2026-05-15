@@ -57,26 +57,36 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
           {mode === "register" && (
             <Field label="Nome" error={errors.name}>
               <input
-                type="text" value={name} onChange={(e) => setName(e.target.value)}
-                className="auth-input" placeholder="Seu nome"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="auth-input"
+                placeholder="Seu nome"
               />
             </Field>
           )}
           <Field label="E-mail" error={errors.email}>
             <input
-              type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-              className="auth-input" placeholder="voce@email.com"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="auth-input"
+              placeholder="voce@email.com"
             />
           </Field>
           <Field label="Senha" error={errors.password}>
             <input
-              type="password" value={password} onChange={(e) => setPassword(e.target.value)}
-              className="auth-input" placeholder="••••••••"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="auth-input"
+              placeholder="••••••••"
             />
           </Field>
 
           <button
-            type="submit" disabled={loading}
+            type="submit"
+            disabled={loading}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-hero py-3 text-sm font-semibold text-white shadow-soft transition hover:shadow-glow disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
@@ -86,9 +96,19 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
           {mode === "login" ? (
-            <>Não tem conta? <Link to="/cadastro" className="font-semibold text-primary hover:underline">Cadastre-se</Link></>
+            <>
+              Não tem conta?{" "}
+              <Link to="/cadastro" className="font-semibold text-primary hover:underline">
+                Cadastre-se
+              </Link>
+            </>
           ) : (
-            <>Já tem conta? <Link to="/login" className="font-semibold text-primary hover:underline">Entrar</Link></>
+            <>
+              Já tem conta?{" "}
+              <Link to="/login" className="font-semibold text-primary hover:underline">
+                Entrar
+              </Link>
+            </>
           )}
         </p>
       </div>
@@ -114,7 +134,15 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-semibold text-foreground/80">{label}</span>

@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { CartProvider } from "@/contexts/CartContext";
@@ -25,7 +26,10 @@ function NotFoundComponent() {
           A página que você procura não existe ou foi movida.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center justify-center rounded-full bg-gradient-hero px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-glow">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-hero px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-glow"
+          >
             Voltar ao início
           </Link>
         </div>
@@ -44,12 +48,20 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">Tente novamente em instantes.</p>
         <div className="mt-6 flex justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             Tentar novamente
           </button>
-          <a href="/" className="rounded-full border border-input bg-background px-4 py-2 text-sm font-medium">Início</a>
+          <a
+            href="/"
+            className="rounded-full border border-input bg-background px-4 py-2 text-sm font-medium"
+          >
+            Início
+          </a>
         </div>
       </div>
     </div>
@@ -62,9 +74,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "PetShop — Tudo que seu pet precisa" },
-      { name: "description", content: "E-commerce completo de produtos para pets: rações, brinquedos, higiene e acessórios com entrega rápida." },
+      {
+        name: "description",
+        content:
+          "E-commerce completo de produtos para pets: rações, brinquedos, higiene e acessórios com entrega rápida.",
+      },
       { property: "og:title", content: "PetShop — Tudo que seu pet precisa" },
-      { property: "og:description", content: "Rações, brinquedos, higiene e acessórios premium para o seu pet." },
+      {
+        property: "og:description",
+        content: "Rações, brinquedos, higiene e acessórios premium para o seu pet.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -72,7 +91,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -90,6 +112,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
