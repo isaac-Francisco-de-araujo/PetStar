@@ -1,10 +1,20 @@
-import racao from "@/assets/prod-racao.jpg";
-import brinquedo from "@/assets/prod-brinquedo.jpg";
-import higiene from "@/assets/prod-higiene.jpg";
-import acessorio from "@/assets/prod-acessorio.jpg";
-import arranhador from "@/assets/prod-arranhador.jpg";
-import racaoGato from "@/assets/prod-racao-gato.jpg";
-import cama from "@/assets/prod-cama.jpg";
+// =============================================================
+// 🖼️ IMAGENS DOS PRODUTOS
+// -------------------------------------------------------------
+// Para TROCAR a foto de um produto:
+// 1) Coloque a nova imagem dentro da pasta: src/assets/
+//    (ex.: src/assets/prod-racao.jpg)
+// 2) Importe ela aqui embaixo (ou substitua o arquivo existente
+//    com o mesmo nome para trocar em todos os produtos de uma vez).
+// 3) Use o nome importado no campo `image:` do produto mais abaixo.
+// =============================================================
+import racao from "@/assets/prod-racao.jpg";          // 🐶 Foto padrão de RAÇÃO (cães)
+import brinquedo from "@/assets/prod-brinquedo.jpg";  // 🎾 Foto padrão de BRINQUEDOS
+import higiene from "@/assets/prod-higiene.jpg";      // 🧴 Foto padrão de HIGIENE
+import acessorio from "@/assets/prod-acessorio.jpg";  // 🦴 Foto padrão de ACESSÓRIOS
+import arranhador from "@/assets/prod-arranhador.jpg";// 🐱 Foto de ARRANHADOR
+import racaoGato from "@/assets/prod-racao-gato.jpg"; // 🐱 Foto padrão de RAÇÃO de GATO
+import cama from "@/assets/prod-cama.jpg";            // 🛏️ Foto padrão de CAMA / CAMINHA
 
 export type Category = "Rações" | "Brinquedos" | "Higiene" | "Acessórios";
 
