@@ -22,6 +22,12 @@ import brinquedoMordedor from "@/assets/prod-brinquedo-mordedor-real.jpg";// �
 import brinquedoCorda from "@/assets/prod-brinquedo-corda.jpg";           // 🪢 Brinquedo de corda
 import brinquedoPelucia from "@/assets/prod-brinquedo-pelucia.jpg";       // 🧸 Pelúcia para pets
 import higiene from "@/assets/prod-higiene.jpg";                   // 🧴 Foto padrão de HIGIENE
+import higieneShampooSuave from "@/assets/prod-higiene-shampoo-suave.jpg";   // 🧴 Shampoo Pet Suave
+import higieneShampooNeutro from "@/assets/prod-higiene-shampoo-neutro.jpg"; // 🧴 Shampoo Pet Neutro
+import higieneTapete from "@/assets/prod-higiene-tapete.jpg";                // 🧻 Tapete higiênico
+import higieneEscova from "@/assets/prod-higiene-escova.jpg";                // 🪥 Escova dental pet
+import higienePerfume from "@/assets/prod-higiene-perfume.jpg";              // 🌸 Perfume pet
+import higieneKit from "@/assets/prod-higiene-kit.jpg";                      // 🎁 Kit higiene completo
 import acessorio from "@/assets/prod-acessorio.jpg";               // 🦴 Foto padrão de ACESSÓRIOS
 import arranhador from "@/assets/prod-arranhador.jpg";             // 🐱 Foto de ARRANHADOR
 import cama from "@/assets/prod-cama.jpg";                         // 🛏️ Foto padrão de CAMA / CAMINHA
@@ -81,12 +87,12 @@ export const products: Product[] = [
   // =====================================================
   // 🧴 HIGIENE — campo `image:` define a foto exibida
   // =====================================================
-  { id: "h1", name: "Shampoo Pet Suave 500ml", price: 34.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Limpeza delicada com pH neutro para pets." },
-  { id: "h2", name: "Shampoo Pet Neutro", price: 29.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Fórmula suave para banhos diários." },
-  { id: "h3", name: "Tapete Higiênico", price: 54.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Alta absorção, neutraliza odores.", bestSeller: true },
-  { id: "h4", name: "Escova Dental Pet", price: 19.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Cerdas macias para uma higiene bucal completa." },
-  { id: "h5", name: "Perfume Pet", price: 34.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Fragrância suave e duradoura." },
-  { id: "h6", name: "Kit Higiene Completo", price: 89.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Shampoo, condicionador e perfume em um só kit.", featured: true },
+  { id: "h1", name: "Shampoo Pet Suave 500ml", price: 34.9, category: "Higiene", image: higieneShampooSuave,  /* 👈 imagem do produto */ description: "Limpeza delicada com pH neutro para pets." },
+  { id: "h2", name: "Shampoo Pet Neutro",      price: 29.9, category: "Higiene", image: higieneShampooNeutro, /* 👈 imagem do produto */ description: "Fórmula suave para banhos diários." },
+  { id: "h3", name: "Tapete Higiênico",        price: 54.9, category: "Higiene", image: higieneTapete,        /* 👈 imagem do produto */ description: "Alta absorção, neutraliza odores.", bestSeller: true },
+  { id: "h4", name: "Escova Dental Pet",       price: 19.9, category: "Higiene", image: higieneEscova,        /* 👈 imagem do produto */ description: "Cerdas macias para uma higiene bucal completa." },
+  { id: "h5", name: "Perfume Pet",             price: 34.9, category: "Higiene", image: higienePerfume,       /* 👈 imagem do produto */ description: "Fragrância suave e duradoura." },
+  { id: "h6", name: "Kit Higiene Completo",    price: 89.9, category: "Higiene", image: higieneKit,           /* 👈 imagem do produto */ description: "Shampoo, condicionador e perfume em um só kit.", featured: true },
 ];
 
 export const formatBRL = (n: number) =>
