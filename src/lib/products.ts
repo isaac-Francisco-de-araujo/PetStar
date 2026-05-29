@@ -8,13 +8,23 @@
 //    com o mesmo nome para trocar em todos os produtos de uma vez).
 // 3) Use o nome importado no campo `image:` do produto mais abaixo.
 // =============================================================
-import racao from "@/assets/prod-racao.jpg";          // 🐶 Foto padrão de RAÇÃO (cães)
-import brinquedo from "@/assets/prod-brinquedo.jpg";  // 🎾 Foto padrão de BRINQUEDOS
-import higiene from "@/assets/prod-higiene.jpg";      // 🧴 Foto padrão de HIGIENE
-import acessorio from "@/assets/prod-acessorio.jpg";  // 🦴 Foto padrão de ACESSÓRIOS
-import arranhador from "@/assets/prod-arranhador.jpg";// 🐱 Foto de ARRANHADOR
-import racaoGato from "@/assets/prod-racao-gato.jpg"; // 🐱 Foto padrão de RAÇÃO de GATO
-import cama from "@/assets/prod-cama.jpg";            // 🛏️ Foto padrão de CAMA / CAMINHA
+import racao from "@/assets/prod-racao.jpg";                       // 🐶 Ração premium cães (padrão)
+import racaoGolden from "@/assets/prod-racao-golden.jpg";          // 🐶 Ração Golden Special
+import racaoPremier from "@/assets/prod-racao-premier.jpg";        // 🐶 Ração Premier Fórmula
+import racaoPedigree from "@/assets/prod-racao-pedigree-real.jpg"; // 🐶 Ração Pedigree (foto real)
+import racaoRoyal from "@/assets/prod-racao-royal.jpg";            // 🐶 Ração Royal Canin Mini
+import racaoGato from "@/assets/prod-racao-gato.jpg";              // 🐱 Ração gatos premium (padrão)
+import racaoWhiskas from "@/assets/prod-racao-whiskas.jpg";        // 🐱 Ração Whiskas Gatos
+import brinquedo from "@/assets/prod-brinquedo.jpg";               // 🎾 Kit brinquedos (padrão)
+import brinquedoBolinha from "@/assets/prod-brinquedo-bolinha.jpg";       // 🔴 Bolinha de borracha
+import brinquedoInterativa from "@/assets/prod-brinquedo-interativa.jpg"; // 🧩 Bola interativa
+import brinquedoMordedor from "@/assets/prod-brinquedo-mordedor-real.jpg";// 🦴 Mordedor (foto real)
+import brinquedoCorda from "@/assets/prod-brinquedo-corda.jpg";           // 🪢 Brinquedo de corda
+import brinquedoPelucia from "@/assets/prod-brinquedo-pelucia.jpg";       // 🧸 Pelúcia para pets
+import higiene from "@/assets/prod-higiene.jpg";                   // 🧴 Foto padrão de HIGIENE
+import acessorio from "@/assets/prod-acessorio.jpg";               // 🦴 Foto padrão de ACESSÓRIOS
+import arranhador from "@/assets/prod-arranhador.jpg";             // 🐱 Foto de ARRANHADOR
+import cama from "@/assets/prod-cama.jpg";                         // 🛏️ Foto padrão de CAMA / CAMINHA
 
 export type Category = "Rações" | "Brinquedos" | "Higiene" | "Acessórios";
 
@@ -37,24 +47,24 @@ export const products: Product[] = [
   // pelo nome de uma das variáveis importadas no topo do arquivo
   // (racao, racaoGato, brinquedo, higiene, acessorio, arranhador, cama)
   // =====================================================
-  { id: "r1", name: "Ração Premium Cães Adultos 15kg", price: 189.9, category: "Rações", image: racao, /* 👈 imagem do produto (trocar aqui) */ description: "Nutrição completa e balanceada para cães adultos.", featured: true, bestSeller: true },
-  { id: "r2", name: "Ração Premium Gatos 10kg", price: 159.9, category: "Rações", image: racaoGato, /* 👈 imagem do produto */ description: "Sabor irresistível com proteínas selecionadas.", featured: true },
-  { id: "r3", name: "Ração Golden Special Adultos", price: 129.9, category: "Rações", image: racao, /* 👈 imagem do produto */ description: "Fórmula especial para cães adultos de todos os portes." },
-  { id: "r4", name: "Ração Premier Fórmula", price: 149.9, category: "Rações", image: racao, /* 👈 imagem do produto */ description: "Alta digestibilidade e sabor incomparável.", bestSeller: true },
-  { id: "r5", name: "Ração Pedigree Carne e Vegetais", price: 89.9, category: "Rações", image: racao, /* 👈 imagem do produto */ description: "Sabor de carne com vegetais selecionados." },
-  { id: "r6", name: "Ração Whiskas Gatos Adultos", price: 79.9, category: "Rações", image: racaoGato, /* 👈 imagem do produto */ description: "Para gatos exigentes que amam variedade." },
-  { id: "r7", name: "Ração Royal Canin Mini", price: 179.9, category: "Rações", image: racao, /* 👈 imagem do produto */ description: "Nutrição premium para cães de pequeno porte.", featured: true },
+  { id: "r1", name: "Ração Premium Cães Adultos 15kg", price: 189.9, category: "Rações", image: racao,         /* 👈 imagem do produto */ description: "Nutrição completa e balanceada para cães adultos.", featured: true, bestSeller: true },
+  { id: "r2", name: "Ração Premium Gatos 10kg",        price: 159.9, category: "Rações", image: racaoGato,     /* 👈 imagem do produto */ description: "Sabor irresistível com proteínas selecionadas.", featured: true },
+  { id: "r3", name: "Ração Golden Special Adultos",    price: 129.9, category: "Rações", image: racaoGolden,   /* 👈 imagem do produto */ description: "Fórmula especial para cães adultos de todos os portes." },
+  { id: "r4", name: "Ração Premier Fórmula",           price: 149.9, category: "Rações", image: racaoPremier,  /* 👈 imagem do produto */ description: "Alta digestibilidade e sabor incomparável.", bestSeller: true },
+  { id: "r5", name: "Ração Pedigree Carne e Vegetais", price:  89.9, category: "Rações", image: racaoPedigree, /* 👈 imagem do produto */ description: "Sabor de carne com vegetais selecionados." },
+  { id: "r6", name: "Ração Whiskas Gatos Adultos",     price:  79.9, category: "Rações", image: racaoWhiskas,  /* 👈 imagem do produto */ description: "Para gatos exigentes que amam variedade." },
+  { id: "r7", name: "Ração Royal Canin Mini",          price: 179.9, category: "Rações", image: racaoRoyal,    /* 👈 imagem do produto */ description: "Nutrição premium para cães de pequeno porte.", featured: true },
 
   // =====================================================
   // 🎾 BRINQUEDOS — campo `image:` define a foto exibida
   // =====================================================
-  { id: "b1", name: "Kit Brinquedos Coloridos", price: 49.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Diversão garantida com bola e corda resistentes.", featured: true },
-  { id: "b2", name: "Bolinha Borracha Resistente", price: 19.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Para horas de brincadeira sem desgaste." },
-  { id: "b3", name: "Bola Interativa para Cachorro", price: 24.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Estimula a inteligência e brincadeira ativa.", bestSeller: true },
-  { id: "b4", name: "Mordedor Resistente", price: 39.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Borracha atóxica resistente para mordidas fortes." },
-  { id: "b5", name: "Arranhador para Gatos", price: 69.9, category: "Brinquedos", image: arranhador, /* 👈 imagem do produto */ description: "Sisal natural ideal para afiar as garrinhas." },
-  { id: "b6", name: "Brinquedo de Corda", price: 19.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Perfeito para cabo de guerra e brincadeiras." },
-  { id: "b7", name: "Pelúcia para Pets", price: 34.9, category: "Brinquedos", image: brinquedo, /* 👈 imagem do produto */ description: "Macia, com guizo interno para diversão." },
+  { id: "b1", name: "Kit Brinquedos Coloridos",       price: 49.9, category: "Brinquedos", image: brinquedo,            /* 👈 imagem do produto */ description: "Diversão garantida com bola e corda resistentes.", featured: true },
+  { id: "b2", name: "Bolinha Borracha Resistente",    price: 19.9, category: "Brinquedos", image: brinquedoBolinha,     /* 👈 imagem do produto */ description: "Para horas de brincadeira sem desgaste." },
+  { id: "b3", name: "Bola Interativa para Cachorro",  price: 24.9, category: "Brinquedos", image: brinquedoInterativa,  /* 👈 imagem do produto */ description: "Estimula a inteligência e brincadeira ativa.", bestSeller: true },
+  { id: "b4", name: "Mordedor Resistente",            price: 39.9, category: "Brinquedos", image: brinquedoMordedor,    /* 👈 imagem do produto */ description: "Borracha atóxica resistente para mordidas fortes." },
+  { id: "b5", name: "Arranhador para Gatos",          price: 69.9, category: "Brinquedos", image: arranhador,           /* 👈 imagem do produto */ description: "Sisal natural ideal para afiar as garrinhas." },
+  { id: "b6", name: "Brinquedo de Corda",             price: 19.9, category: "Brinquedos", image: brinquedoCorda,       /* 👈 imagem do produto */ description: "Perfeito para cabo de guerra e brincadeiras." },
+  { id: "b7", name: "Pelúcia para Pets",              price: 34.9, category: "Brinquedos", image: brinquedoPelucia,     /* 👈 imagem do produto */ description: "Macia, com guizo interno para diversão." },
 
   // =====================================================
   // 🦴 ACESSÓRIOS — campo `image:` define a foto exibida
