@@ -9,8 +9,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // Importa a route tree gerada automaticamente pelo TanStack Router Vite plugin
 import { routeTree } from "./routeTree.gen";
 
-import "./index.css";
-
 // Cria o QueryClient para TanStack Query
 const queryClient = new QueryClient({
   defaultOptions: {
