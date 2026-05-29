@@ -87,12 +87,12 @@ export const products: Product[] = [
   // =====================================================
   // 🧴 HIGIENE — campo `image:` define a foto exibida
   // =====================================================
-  { id: "h1", name: "Shampoo Pet Suave 500ml", price: 34.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Limpeza delicada com pH neutro para pets." },
-  { id: "h2", name: "Shampoo Pet Neutro", price: 29.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Fórmula suave para banhos diários." },
-  { id: "h3", name: "Tapete Higiênico", price: 54.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Alta absorção, neutraliza odores.", bestSeller: true },
-  { id: "h4", name: "Escova Dental Pet", price: 19.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Cerdas macias para uma higiene bucal completa." },
-  { id: "h5", name: "Perfume Pet", price: 34.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Fragrância suave e duradoura." },
-  { id: "h6", name: "Kit Higiene Completo", price: 89.9, category: "Higiene", image: higiene, /* 👈 imagem do produto */ description: "Shampoo, condicionador e perfume em um só kit.", featured: true },
+  { id: "h1", name: "Shampoo Pet Suave 500ml", price: 34.9, category: "Higiene", image: higieneShampooSuave,  /* 👈 imagem do produto */ description: "Limpeza delicada com pH neutro para pets." },
+  { id: "h2", name: "Shampoo Pet Neutro",      price: 29.9, category: "Higiene", image: higieneShampooNeutro, /* 👈 imagem do produto */ description: "Fórmula suave para banhos diários." },
+  { id: "h3", name: "Tapete Higiênico",        price: 54.9, category: "Higiene", image: higieneTapete,        /* 👈 imagem do produto */ description: "Alta absorção, neutraliza odores.", bestSeller: true },
+  { id: "h4", name: "Escova Dental Pet",       price: 19.9, category: "Higiene", image: higieneEscova,        /* 👈 imagem do produto */ description: "Cerdas macias para uma higiene bucal completa." },
+  { id: "h5", name: "Perfume Pet",             price: 34.9, category: "Higiene", image: higienePerfume,       /* 👈 imagem do produto */ description: "Fragrância suave e duradoura." },
+  { id: "h6", name: "Kit Higiene Completo",    price: 89.9, category: "Higiene", image: higieneKit,           /* 👈 imagem do produto */ description: "Shampoo, condicionador e perfume em um só kit.", featured: true },
 ];
 
 export const formatBRL = (n: number) =>
