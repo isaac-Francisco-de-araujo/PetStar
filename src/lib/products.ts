@@ -22,6 +22,12 @@ import brinquedoMordedor from "@/assets/prod-brinquedo-mordedor-real.jpg";// �
 import brinquedoCorda from "@/assets/prod-brinquedo-corda.jpg";           // 🪢 Brinquedo de corda
 import brinquedoPelucia from "@/assets/prod-brinquedo-pelucia.jpg";       // 🧸 Pelúcia para pets
 import higiene from "@/assets/prod-higiene.jpg";                   // 🧴 Foto padrão de HIGIENE
+import higieneShampooSuave from "@/assets/prod-higiene-shampoo-suave.jpg";   // 🧴 Shampoo Pet Suave
+import higieneShampooNeutro from "@/assets/prod-higiene-shampoo-neutro.jpg"; // 🧴 Shampoo Pet Neutro
+import higieneTapete from "@/assets/prod-higiene-tapete.jpg";                // 🧻 Tapete higiênico
+import higieneEscova from "@/assets/prod-higiene-escova.jpg";                // 🪥 Escova dental pet
+import higienePerfume from "@/assets/prod-higiene-perfume.jpg";              // 🌸 Perfume pet
+import higieneKit from "@/assets/prod-higiene-kit.jpg";                      // 🎁 Kit higiene completo
 import acessorio from "@/assets/prod-acessorio.jpg";               // 🦴 Foto padrão de ACESSÓRIOS
 import arranhador from "@/assets/prod-arranhador.jpg";             // 🐱 Foto de ARRANHADOR
 import cama from "@/assets/prod-cama.jpg";                         // 🛏️ Foto padrão de CAMA / CAMINHA
