@@ -1,15 +1,72 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, cloudflare (build-only),
-//     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
-//     error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... } }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+// vite.config.ts — configuração para deploy na Vercel
+//
+// IMPORTANTE: Este arquivo substitui o uso do @lovable.dev/vite-tanstack-config
+// que força o build para Cloudflare Workers (incompatível com Vercel).
+// Aqui usamos o @tanstack/router-plugin diretamente com preset "static" (SPA).
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import tsConfigPaths from "vite-tsconfig-paths";
+
+// Detecta se estamos no ambiente Vercel
+const isVercel = process.env.VERCEL === "1" || process.env.VERCEL_ENV !== undefined;
+
 export default defineConfig({
-  tanstackStart: {
-    server: { entry: "server" },
+  plugins: [
+    // TanStack Router file-based routing (sem SSR)
+    TanStackRouterVite({
+      routesDirectory: "./src/routes",
+      generatedRouteTree: "./src/routeTree.gen.ts",
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tailwindcss(),
+    tsConfigPaths(),
+  ],
+
+  // Build para SPA estático — compatível com Vercel
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: "./index.html",
+      },
+      output: {
+        // Code splitting para melhor performance
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          router: ["@tanstack/react-router"],
+          query: ["@tanstack/react-query"],
+        },
+      },
+    },
+    // Aumenta o limite de aviso de chunk
+    chunkSizeWarningLimit: 1000,
+  },
+
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
+
+  // Configuração do servidor de desenvolvimento
+  server: {
+    port: 3000,
+    host: true,
+    strictPort: false,
+  },
+
+  // Otimizações
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "@tanstack/react-router",
+      "@tanstack/react-query",
+    ],
   },
 });
