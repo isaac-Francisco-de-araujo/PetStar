@@ -14,6 +14,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PetProvider } from "@/contexts/PetContext";
 
 function NotFoundComponent() {
   return (
@@ -100,16 +101,18 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <CartProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">
-              <Outlet />
-            </main>
-            <Footer />
-          </div>
-          <Toaster position="top-right" richColors closeButton />
-        </CartProvider>
+        <PetProvider>
+          <CartProvider>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">
+                <Outlet />
+              </main>
+              <Footer />
+            </div>
+            <Toaster position="top-right" richColors closeButton />
+          </CartProvider>
+        </PetProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

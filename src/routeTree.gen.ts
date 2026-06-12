@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as MonitoramentoRouteImport } from './routes/monitoramento'
+import { Route as MeuPetRouteImport } from './routes/meu-pet'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ChatRouteImport } from './routes/chat'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CadastroRouteImport } from './routes/cadastro'
 import { Route as IndexRouteImport } from './routes/index'
@@ -26,9 +30,29 @@ const ProdutosRoute = ProdutosRouteImport.update({
   path: '/produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MonitoramentoRoute = MonitoramentoRouteImport.update({
+  id: '/monitoramento',
+  path: '/monitoramento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeuPetRoute = MeuPetRouteImport.update({
+  id: '/meu-pet',
+  path: '/meu-pet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CarrinhoRoute = CarrinhoRouteImport.update({
@@ -51,7 +75,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
+  '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/meu-pet': typeof MeuPetRoute
+  '/monitoramento': typeof MonitoramentoRoute
+  '/perfil': typeof PerfilRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
 }
@@ -59,7 +87,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
+  '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/meu-pet': typeof MeuPetRoute
+  '/monitoramento': typeof MonitoramentoRoute
+  '/perfil': typeof PerfilRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
 }
@@ -68,7 +100,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
+  '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/meu-pet': typeof MeuPetRoute
+  '/monitoramento': typeof MonitoramentoRoute
+  '/perfil': typeof PerfilRoute
   '/produtos': typeof ProdutosRoute
   '/servicos': typeof ServicosRoute
 }
@@ -78,17 +114,35 @@ export interface FileRouteTypes {
     | '/'
     | '/cadastro'
     | '/carrinho'
+    | '/chat'
     | '/login'
+    | '/meu-pet'
+    | '/monitoramento'
+    | '/perfil'
     | '/produtos'
     | '/servicos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cadastro' | '/carrinho' | '/login' | '/produtos' | '/servicos'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/carrinho'
+    | '/chat'
+    | '/login'
+    | '/meu-pet'
+    | '/monitoramento'
+    | '/perfil'
+    | '/produtos'
+    | '/servicos'
   id:
     | '__root__'
     | '/'
     | '/cadastro'
     | '/carrinho'
+    | '/chat'
     | '/login'
+    | '/meu-pet'
+    | '/monitoramento'
+    | '/perfil'
     | '/produtos'
     | '/servicos'
   fileRoutesById: FileRoutesById
@@ -97,7 +151,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CadastroRoute: typeof CadastroRoute
   CarrinhoRoute: typeof CarrinhoRoute
+  ChatRoute: typeof ChatRoute
   LoginRoute: typeof LoginRoute
+  MeuPetRoute: typeof MeuPetRoute
+  MonitoramentoRoute: typeof MonitoramentoRoute
+  PerfilRoute: typeof PerfilRoute
   ProdutosRoute: typeof ProdutosRoute
   ServicosRoute: typeof ServicosRoute
 }
@@ -118,11 +176,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/monitoramento': {
+      id: '/monitoramento'
+      path: '/monitoramento'
+      fullPath: '/monitoramento'
+      preLoaderRoute: typeof MonitoramentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meu-pet': {
+      id: '/meu-pet'
+      path: '/meu-pet'
+      fullPath: '/meu-pet'
+      preLoaderRoute: typeof MeuPetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/carrinho': {
@@ -153,7 +239,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CadastroRoute: CadastroRoute,
   CarrinhoRoute: CarrinhoRoute,
+  ChatRoute: ChatRoute,
   LoginRoute: LoginRoute,
+  MeuPetRoute: MeuPetRoute,
+  MonitoramentoRoute: MonitoramentoRoute,
+  PerfilRoute: PerfilRoute,
   ProdutosRoute: ProdutosRoute,
   ServicosRoute: ServicosRoute,
 }
